@@ -6,9 +6,11 @@ const CategoryFilter = ({ setFilters }) => {
   const { categories } = useSelector((state) => state.categories);
   const { category } = useParams() || "";
   let total = 0;
-  const totalProduct = categories.map(
-    (item) => (total += Number(item.totalProduct))
-  );
+  categories.map((item) => {
+    if (item.totalProduct) {
+      total = total + item.totalProduct;
+    }
+  });
   return (
     <>
       <div>

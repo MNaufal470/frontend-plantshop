@@ -1,20 +1,13 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-import "swiper/css/navigation";
 import "swiper/css";
 import { Rating, Skeleton } from "@mui/material";
 const Testimoni = ({ testimoni, loading }) => {
   return (
     <section className="testimonial section container  lg:mb-0">
       <div className="testimonial__container grid md:grid-cols-2 lg:!gap-x-[8rem] grid-cols-1 md:gap-y-[4rem] gap-y-[1rem]">
-        <div className="testimonial-swiper overflow-hidden">
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={1}
-            navigation
-            modules={[Navigation]}
-          >
+        <div className="testimonial-swiper ">
+          <Swiper spaceBetween={50} slidesPerView={1}>
             {testimoni.length > 0 &&
               !loading &&
               testimoni.map((item) => (

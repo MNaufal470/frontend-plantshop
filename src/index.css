@@ -1115,6 +1115,10 @@ footer {
     left: 45% !important;
     transform: translateX(-50%) !important;
   }
+  .testimonial-swiper .swiper-button-prev,
+  .testimonial-swiper .swiper-button-next {
+    bottom: -10px !important;
+  }
 }
 @media screen and (max-width: 767px) {
   .nav__menu {
