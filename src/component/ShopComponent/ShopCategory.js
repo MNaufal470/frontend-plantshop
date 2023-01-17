@@ -34,8 +34,8 @@ const ShopCategory = () => {
           },
         }}
       >
-        {!loading > 0
-          ? categories.map((item) => (
+        {!loading
+          ? categories?.map((item) => (
               <SwiperSlide key={item._id}>
                 <Category img={item.image} name={item.name} />
               </SwiperSlide>
