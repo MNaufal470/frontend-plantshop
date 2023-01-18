@@ -29,7 +29,9 @@ const ProductDetailPage = () => {
   const { recently } = useSelector((state) => state.recently);
 
   const checkUserCanReview = async () => {
-    const { data } = await axios.get("/api/reviews/check/" + id);
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_PLANT}/api/reviews/check/` + id
+    );
     return data;
   };
 
@@ -74,13 +76,16 @@ const ProductDetailPage = () => {
   useEffect(() => {
     setLoading(true);
     const fetchProduct = async () => {
-      const { data } = await axios.get("/api/products/" + id);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/products/` + id
+      );
       return data;
     };
 
     const fetchRelated = async (category) => {
       const { data } = await axios.get(
-        "/api/products/spesial/relatedProduct/" + category
+        `${process.env.REACT_APP_PLANT}/api/products/spesial/relatedProduct/` +
+          category
       );
       return data;
     };

@@ -12,13 +12,17 @@ const ShopPage = () => {
   const [bestSellers, setBestSellers] = useState([]);
   const [testimoni, setTestimoni] = useState([]);
   const fetchSpesialProduct = async () => {
-    await axios.get("/api/products/spesial/getProductBy").then((res) => {
-      setNewArrivals(res.data.newArrivals);
-      setBestSellers(res.data.bestSeller);
-    });
+    await axios
+      .get(`${process.env.REACT_APP_PLANT}/api/products/spesial/getProductBy`)
+      .then((res) => {
+        setNewArrivals(res.data.newArrivals);
+        setBestSellers(res.data.bestSeller);
+      });
   };
   const fetchTestimoni = async () => {
-    await axios.get("/api/reviews").then((res) => setTestimoni(res.data));
+    await axios
+      .get(`${process.env.REACT_APP_PLANT}/api/reviews`)
+      .then((res) => setTestimoni(res.data));
   };
   useEffect(() => {
     setLoading(true);

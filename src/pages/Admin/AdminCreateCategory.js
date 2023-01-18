@@ -155,7 +155,10 @@ const AdminCreateCategory = () => {
   };
 
   const handleCategoryApiReq = async (formInputs) => {
-    const { data } = await axios.post("/api/categories", { ...formInputs });
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_PLANT}/api/categories`,
+      { ...formInputs }
+    );
     return data;
   };
   const handleImageCategoryApiReq = async (image, id) => {
@@ -171,9 +174,12 @@ const AdminCreateCategory = () => {
 
     // Cloudinary
 
-    const { data } = await axios.put("/api/categories/image/upload/" + id, {
-      images: images,
-    });
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_PLANT}/api/categories/image/upload/` + id,
+      {
+        images: images,
+      }
+    );
     return data;
   };
   return (

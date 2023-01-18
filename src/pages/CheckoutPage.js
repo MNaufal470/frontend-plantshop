@@ -25,9 +25,12 @@ const CheckoutPage = () => {
     );
   };
   const updatedOrder = async (orderId) => {
-    const { data } = await axios.put("/api/orders/paid/" + orderId, {
-      paymentMethod: paymentMethod,
-    });
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_PLANT}/api/orders/paid/` + orderId,
+      {
+        paymentMethod: paymentMethod,
+      }
+    );
     return data;
   };
   const orderHandler = () => {
@@ -101,11 +104,15 @@ const CheckoutPage = () => {
   };
   useEffect(() => {
     const fetchUser = async () => {
-      const { data } = await axios.get("/api/user/profile/" + user._id);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/user/profile/` + user._id
+      );
       return data;
     };
     const getOrder = async () => {
-      const { data } = await axios.get("/api/orders/user/" + id);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/orders/user/` + id
+      );
       return data;
     };
     fetchUser().then((res) => {

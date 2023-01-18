@@ -183,7 +183,10 @@ const AdminCreateProduct = () => {
   };
 
   const sendDataToServer = async (formInputs) => {
-    const { data } = await axios.post("/api/products", formInputs);
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_PLANT}/api/products`,
+      formInputs
+    );
     return data;
   };
 
@@ -192,9 +195,12 @@ const AdminCreateProduct = () => {
       const reader = new FileReader();
       reader.readAsDataURL(img);
       reader.onloadend = async () => {
-        const { data } = await axios.put("/api/products/images/upload/" + id, {
-          image: reader.result,
-        });
+        const { data } = await axios.put(
+          `${process.env.REACT_APP_PLANT}/api/products/images/upload/` + id,
+          {
+            image: reader.result,
+          }
+        );
         return data;
       };
       return navigate("/admin/products", { replace: true });
@@ -216,7 +222,9 @@ const AdminCreateProduct = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const { data } = await axios.get("/api/categories");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/categories`
+      );
       return data;
     };
     fetchCategories().then((res) => {

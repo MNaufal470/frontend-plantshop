@@ -14,19 +14,25 @@ export default function MyModal({
     setModal({ show: false, id: "" });
   }
   const deleteUser = async () => {
-    const { data } = await axios.delete("/api/user/" + id);
+    const { data } = await axios.delete(
+      `${process.env.REACT_APP_PLANT}/api/user/` + id
+    );
     setModal({ show: false, id: "" });
     return data;
   };
 
   const deleteCategory = async () => {
-    const { data } = await axios.delete("/api/categories/" + id);
+    const { data } = await axios.delete(
+      `${process.env.REACT_APP_PLANT}/api/categories/` + id
+    );
     setModal({ show: false, id: "" });
     return data;
   };
 
   const deleteProduct = async () => {
-    const { data } = await axios.delete("/api/products/" + id);
+    const { data } = await axios.delete(
+      `${process.env.REACT_APP_PLANT}/api/products/` + id
+    );
     setModal({ show: false, id: "" });
     return data;
   };

@@ -7,7 +7,7 @@ const AdminUserPage = () => {
   const [users, setUsers] = useState([]);
   const [modal, setModal] = useState({ show: false, id: "" });
   const fetchAllUsers = async () => {
-    const { data } = await axios.get("/api/user");
+    const { data } = await axios.get(`${process.env.REACT_APP_PLANT}/api/user`);
     return data;
   };
 

@@ -180,7 +180,10 @@ const AdminEditProduct = () => {
   };
 
   const sendDataToServer = async (formInputs) => {
-    const { data } = await axios.put("/api/products/" + id, formInputs);
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_PLANT}/api/products/` + id,
+      formInputs
+    );
     return data;
   };
 
@@ -192,7 +195,10 @@ const AdminEditProduct = () => {
       formData.append("images", img);
     });
     await axios
-      .put(`/api/products/images/upload/${id}`, formData)
+      .put(
+        `${process.env.REACT_APP_PLANT}/api/products/images/upload/${id}`,
+        formData
+      )
       .catch((err) =>
         dispatchImage({ type: "errors", errorMessage: err.response.data })
       );
@@ -206,9 +212,12 @@ const AdminEditProduct = () => {
     reader.readAsDataURL(image);
     reader.onloadend = async () => {
       await axios
-        .put("/api/products/images/upload/" + id, {
-          image: reader.result,
-        })
+        .put(
+          `${process.env.REACT_APP_PLANT}/api/products/images/upload/` + id,
+          {
+            image: reader.result,
+          }
+        )
         .then((res) => setImgRemoved(!imgRemoved));
     };
   };
@@ -216,7 +225,7 @@ const AdminEditProduct = () => {
     // Cloudinary Delete Image
     let pathName = encodeURIComponent(path);
     const { data } = await axios.put(
-      `/api/products/images/delete/${pathName}/${id}`,
+      `${process.env.REACT_APP_PLANT}/api/products/images/delete/${pathName}/${id}`,
       { cloudID, path }
     );
     setImgRemoved(!imgRemoved);
@@ -225,11 +234,15 @@ const AdminEditProduct = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const { data } = await axios.get("/api/categories");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/categories`
+      );
       return data;
     };
     const fetchProduct = async () => {
-      const { data } = await axios.get("/api/products/" + id);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/products/` + id
+      );
       return data;
     };
 

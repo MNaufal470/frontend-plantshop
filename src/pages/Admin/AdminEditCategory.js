@@ -102,7 +102,10 @@ const AdminEditCategory = () => {
   };
 
   const handleEditCategory = async (formInputs) => {
-    const { data } = await axios.put("/api/categories/" + id, formInputs);
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_PLANT}/api/categories/` + id,
+      formInputs
+    );
     return data;
   };
 
@@ -132,7 +135,9 @@ const AdminEditCategory = () => {
   };
 
   const fetchCategory = async () => {
-    const { data } = await axios.get("/api/categories/" + id);
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_PLANT}/api/categories/` + id
+    );
     return data;
   };
 
@@ -154,9 +159,13 @@ const AdminEditCategory = () => {
     reader.readAsDataURL(img);
     reader.onloadend = async () => {
       const data = await axios
-        .put("/api/categories/image/upload/edit/" + id, {
-          images: reader.result,
-        })
+        .put(
+          `${process.env.REACT_APP_PLANT}/api/categories/image/upload/edit/` +
+            id,
+          {
+            images: reader.result,
+          }
+        )
         .then((res) => {
           setimageChanged(!imageChanged);
           setLoading(false);

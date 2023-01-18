@@ -70,7 +70,7 @@ const ProductListUser = () => {
       filtersUrl = proceedFilters(filters);
       const search = searchQuery ? `search/${searchQuery}/` : "";
       const categoryName = category ? `category/${category}/` : "";
-      const url = `/api/products/${categoryName}${search}?pageNum=${pageNumParam}${filtersUrl}&sort=${sortOption}`;
+      const url = `${process.env.REACT_APP_PLANT}/api/products/${categoryName}${search}?pageNum=${pageNumParam}${filtersUrl}&sort=${sortOption}`;
       const { data } = await axios.get(url);
 
       return data;

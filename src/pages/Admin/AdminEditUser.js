@@ -46,9 +46,12 @@ const AdminEditUser = () => {
     reader.readAsDataURL(image);
     reader.onloadend = async () => {
       const { data } = await axios
-        .put(`/api/user/profile/cloudinary/edit/${id}`, {
-          images: reader.result,
-        })
+        .put(
+          `${process.env.REACT_APP_PLANT}/api/user/profile/cloudinary/edit/${id}`,
+          {
+            images: reader.result,
+          }
+        )
         .then((res) => {
           setChangeImage(!changeImage);
           setLoading(false);
@@ -132,7 +135,9 @@ const AdminEditUser = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const { data } = await axios.get("/api/user/" + id);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/user/` + id
+      );
       return data;
     };
     fetchUser().then((res) => {

@@ -8,7 +8,9 @@ const AdminCategoryPage = () => {
   const [modal, setModal] = useState({ show: false, id: "" });
 
   const fetchCategories = async () => {
-    const { data } = await axios.get("/api/categories");
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_PLANT}/api/categories`
+    );
     return data;
   };
 

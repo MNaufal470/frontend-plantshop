@@ -16,7 +16,10 @@ const ReviewInput = ({ name, productId, render, setRender }) => {
     errors: "",
   });
   const sendRequestToReview = async (reviewData) => {
-    const { data } = await axios.post("/api/reviews/" + productId, reviewData);
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_PLANT}/api/reviews/` + productId,
+      reviewData
+    );
     return data;
   };
   const handleChangeRating = (e, newValue) => {

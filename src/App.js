@@ -41,7 +41,9 @@ function App() {
 
   const getCategories = async () => {
     dispatch(categoriesAction.changeLoading(true));
-    const { data } = await axios.get("/api/categories");
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_PLANT}/api/categories`
+    );
     return data;
   };
   useEffect(() => {

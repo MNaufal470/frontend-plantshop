@@ -7,7 +7,9 @@ const AdminProductPage = () => {
   const [products, setProducts] = useState([]);
   const [modal, setModal] = useState({ show: false, id: "" });
   const fetchProducts = async () => {
-    const { data } = await axios.get("/api/products/admin/products");
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_PLANT}/api/products/admin/products`
+    );
     return data;
   };
 

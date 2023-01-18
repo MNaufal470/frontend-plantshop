@@ -38,7 +38,10 @@ const LoginPage = () => {
   };
 
   const loginApiHandler = async (formInputs) => {
-    const { data } = await axios.post("/api/user/login", formInputs);
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_PLANT}/api/user/login`,
+      formInputs
+    );
     return data;
   };
 

@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="footer__content">
           <h3 className="footer__title">Our Address</h3>
           <ul className="footer__data">
-            <li className="footer__information">1234 - Peru</li>
+            <li className="footer__information">New York - USA</li>
             <li className="footer__information">La Libertad - 43210</li>
             <li className="footer__information">123-456-789</li>
           </ul>

@@ -62,9 +62,12 @@ const UserProfile = () => {
     errors: "",
   });
   const updateApiHandler = async (formInput) => {
-    const { data } = await axios.put("/api/user/profile/" + user._id, {
-      ...formInput,
-    });
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_PLANT}/api/user/profile/` + user._id,
+      {
+        ...formInput,
+      }
+    );
     return data;
   };
 
@@ -75,9 +78,13 @@ const UserProfile = () => {
     reader.readAsDataURL(images[0]);
     reader.onloadend = async () => {
       await axios
-        .put("/api/user/profile/cloudinary/edit/" + user._id, {
-          images: reader.result,
-        })
+        .put(
+          `${process.env.REACT_APP_PLANT}/api/user/profile/cloudinary/edit/` +
+            user._id,
+          {
+            images: reader.result,
+          }
+        )
         .then((res) => {
           setLoadingUpload(false);
           setChangeImage(!changeImage);
@@ -194,7 +201,9 @@ const UserProfile = () => {
   useEffect(() => {
     setLoading(true);
     const fetchUser = async () => {
-      const { data } = await axios.get("/api/user/profile/" + user._id);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/user/profile/` + user._id
+      );
       return data;
     };
     fetchUser().then((res) => {

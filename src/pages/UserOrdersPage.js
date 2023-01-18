@@ -10,7 +10,9 @@ const UserOrdersPage = () => {
   useEffect(() => {
     setLoading(true);
     const fetchUserOrder = async () => {
-      const { data } = await axios.get("/api/orders/");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/orders/`
+      );
       return data;
     };
     fetchUserOrder().then((res) => setOrder(res));

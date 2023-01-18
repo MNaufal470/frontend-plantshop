@@ -14,7 +14,7 @@ import MetaComponent from "../../component/MetaComponent";
 
 const fetchOrdersForFirstDate = async (abctrl, firstDateToCompare) => {
   const { data } = await axios.get(
-    "/api/orders/analysis/" + firstDateToCompare,
+    `${process.env.REACT_APP_PLANT}/api/orders/analysis/` + firstDateToCompare,
     {
       signal: abctrl.signal,
     }
@@ -24,7 +24,7 @@ const fetchOrdersForFirstDate = async (abctrl, firstDateToCompare) => {
 
 const fetchOrdersForSecondDate = async (abctrl, secondDateToCompare) => {
   const { data } = await axios.get(
-    "/api/orders/analysis/" + secondDateToCompare,
+    `${process.env.REACT_APP_PLANT}/api/orders/analysis/` + secondDateToCompare,
     {
       signal: abctrl.signal,
     }
@@ -103,7 +103,9 @@ const AdminPages = () => {
 
   useEffect(() => {
     const fetchDocuments = async () => {
-      const { data } = await axios.get("/api/orders/admin/countDocuments");
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/orders/admin/countDocuments`
+      );
       return data;
     };
     fetchDocuments().then((res) => setCount(res));

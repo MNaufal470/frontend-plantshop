@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AttributeFilter from "./AttributeFilter";
 import CategoryFilter from "./CategoryFilter";
 import FeaturedProduct from "./FeaturedProduct";

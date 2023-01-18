@@ -44,7 +44,10 @@ const RegisterPage = () => {
   const navigate = useNavigate();
 
   const registUser = async (formInputs) => {
-    const { data } = await axios.post("/api/user/register", formInputs);
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_PLANT}/api/user/register`,
+      formInputs
+    );
     return data;
   };
 

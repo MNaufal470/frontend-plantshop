@@ -68,7 +68,10 @@ const CartPage = () => {
       .catch((err) => console.log(err));
   };
   const createOrder = async (orderData) => {
-    const { data } = await axios.post("/api/orders", { ...orderData });
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_PLANT}/api/orders`,
+      { ...orderData }
+    );
     return data;
   };
 
