@@ -27,7 +27,6 @@ const FeaturedProduct = () => {
     <div>
       <h1>Featured Product</h1>
       {!loading &&
-        newArrivals.length > 0 &&
         newArrivals?.slice(0, 3).map((item, key) => (
           <Link to={"/shop/product-detail/" + item._id} key={item._id}>
             <div className="flex flex-col gap-y-4 hover:bg-[#f5f5f5]" key={key}>
