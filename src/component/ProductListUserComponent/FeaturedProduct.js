@@ -7,9 +7,11 @@ const FeaturedProduct = () => {
   const [newArrivals, setNewArrivals] = useState([]);
   const [loading, setLoading] = useState(false);
   const fetchSpesialProduct = async () => {
-    await axios.get("/api/products/spesial/getProductBy").then((res) => {
-      setNewArrivals(res.data.newArrivals);
-    });
+    await axios
+      .get(`${process.env.REACT_APP_PLANT}/api/products/spesial/getProductBy`)
+      .then((res) => {
+        setNewArrivals(res.data.newArrivals);
+      });
   };
 
   useEffect(() => {
