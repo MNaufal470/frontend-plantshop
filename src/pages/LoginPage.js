@@ -60,9 +60,7 @@ const LoginPage = () => {
       loginApiHandler(formInputs)
         .then((res) => {
           dispatch(userAction.login(res.userLoggedIn));
-
           localStorage.setItem("userInfo", JSON.stringify(res.userLoggedIn));
-
           if (res.userLoggedIn.isAdmin) {
             navigate("/admin/dashboard", { replace: true });
           } else {
