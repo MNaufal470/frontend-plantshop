@@ -42,6 +42,7 @@ const ReviewInput = ({ name, productId, render, setRender }) => {
     const reviewData = { comment: comment.value, rating };
     sendRequestToReview(reviewData)
       .then((res) => {
+        setRender(!render);
         toast.success(`Thank you for the feedback `, {
           position: "bottom-right",
           autoClose: 2000,
@@ -53,8 +54,7 @@ const ReviewInput = ({ name, productId, render, setRender }) => {
           theme: "dark",
         });
       })
-      .catch((err) => console.log(err));
-    setRender(!render);
+      .catch((err) => setRender(!render));
   };
   return (
     <div className="w-full  max-w-xl bg-white rounded-lg  mx-auto">
