@@ -5,7 +5,7 @@ const AdminOrdersPage = () => {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const fetchOrders = async () => {
-      const { data } = await axios.get("/api/orders/admin");
+      const { data } = await axios.get(`${process.env.REACT_APP_PLANT}/api/orders/admin`);
       return data;
     };
     fetchOrders().then((res) => setOrders(res));

@@ -11,7 +11,9 @@ const AdminOrderDetail = () => {
   const { id } = useParams();
 
   const updateStatus = async () => {
-    const { data } = await axios.put("/api/orders/delivered/" + id);
+    const { data } = await axios.put(
+      `${process.env.REACT_APP_PLANT}/api/orders/delivered/` + id
+    );
     return data;
   };
 
@@ -22,7 +24,9 @@ const AdminOrderDetail = () => {
 
   useEffect(() => {
     const fetchOrder = async () => {
-      const { data } = await axios.get("/api/orders/user/" + id);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_PLANT}/api/orders/user/` + id
+      );
       return data;
     };
 
