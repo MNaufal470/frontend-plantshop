@@ -6,13 +6,7 @@ import FeaturedProduct from "./FeaturedProduct";
 import PriceFilter from "./PriceFilter";
 import RatingFilter from "./RatingFilter";
 
-const Sidebar = ({
-  setOpenFilter,
-  setRefetch,
-  refetch,
-  categoryExist,
-  setFilters,
-}) => {
+const Sidebar = ({ setOpenFilter, categoryExist, setFilters }) => {
   const navigate = useNavigate();
   const [attrFromFilter, setAttrFromFilter] = useState([]);
   const [showReset, setShowReset] = useState(false);

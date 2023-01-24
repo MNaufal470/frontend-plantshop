@@ -8,7 +8,7 @@ const ProductListLayout = ({ products, setSortOption, loading }) => {
     <div className="  md:ml-0">
       <div className="md:pt-7 flex md:flex-col lg:flex-row gap-y-5  items-center md:justify-between justify-end">
         <div className="mt-10 md:mt-0">
-          <InputSearch product={true} />
+          <InputSearch product={true} productList={true} />
         </div>
         <select
           name=""

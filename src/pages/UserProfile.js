@@ -147,6 +147,12 @@ const UserProfile = () => {
         });
       });
   };
+  const fetchUser = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_PLANT}/api/user/profile/` + user._id
+    );
+    return data;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -200,12 +206,6 @@ const UserProfile = () => {
   };
   useEffect(() => {
     setLoading(true);
-    const fetchUser = async () => {
-      const { data } = await axios.get(
-        `${process.env.REACT_APP_PLANT}/api/user/profile/` + user._id
-      );
-      return data;
-    };
     fetchUser().then((res) => {
       dispatchImage({ type: "fillData", val: res.image });
       dispatchFirstName({ type: "fillData", val: res.name });
@@ -216,8 +216,8 @@ const UserProfile = () => {
       dispatchAddress({ type: "fillData", val: res.address ?? "" });
       dispatchPhoneNumber({ type: "fillData", val: res.phoneNumber ?? "" });
       dispatchState({ type: "fillData", val: res.state ?? "" });
+      setLoading(false);
     });
-    setLoading(false);
   }, [changeImage]);
   return (
     <>

@@ -1,11 +1,13 @@
+import { useMediaQuery } from "@mui/material";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Dropdown from "../Dropdown";
 
-const InputSearch = ({ product = false }) => {
+const InputSearch = ({ product = false, productList = false }) => {
   const { categories } = useSelector((state) => state.categories);
   let allCategories = [...categories, { name: "All" }];
+  const matches = useMediaQuery("(min-width:600px)");
   const [search, setSearch] = useState("");
   const [searchTitle, setsearchTitle] = useState("All");
   const navigate = useNavigate();
@@ -36,7 +38,7 @@ const InputSearch = ({ product = false }) => {
     <form className="flex items-center " onSubmit={submitHandler}>
       <Dropdown
         list={allCategories}
-        product={true}
+        product={product}
         setsearchTitle={setsearchTitle}
         searchTitle={searchTitle}
       />

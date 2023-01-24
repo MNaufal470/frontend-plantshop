@@ -107,7 +107,6 @@ const ProductDetailPage = () => {
       clearTimeout(timeOutLoading);
     };
   }, [id, render]);
-
   return (
     <div className="container section">
       <MetaComponent
@@ -167,9 +166,13 @@ const ProductDetailPage = () => {
               </div>
               <div className="mt-5">
                 <div className="pb-3 border-b-2 border-[#f5f5f5]">
-                  <div className="flex items-center cursor-pointer mb-3">
+                  <div
+                    className={`flex ${
+                      product.rating > 0 ? "items-center" : "flex-col"
+                    } md:flex-row md:items-center cursor-pointer mb-3`}
+                  >
                     <Rating readOnly size="small" value={product.rating ?? 0} />
-                    <span className="text-sm">
+                    <span className="text-xs md:text-sm">
                       (
                       {product.reviewsNumber
                         ? product.reviewsNumber + " Customer Review"

@@ -79,6 +79,7 @@ const ProductListUser = () => {
   );
 
   useEffect(() => {
+    setOpenFilter(false);
     setLoading(true);
     fetchProducts(
       category,
@@ -90,13 +91,8 @@ const ProductListUser = () => {
       setProducts(res);
       setPaginationLinksNumbers(res.paginationLinksNumber);
       setPageNum(res.pageNum);
-    });
-    const timeOutLoading = setTimeout(() => {
       setLoading(false);
-    }, 500);
-    return () => {
-      clearTimeout(timeOutLoading);
-    };
+    });
   }, [
     category,
     pageNumParam,

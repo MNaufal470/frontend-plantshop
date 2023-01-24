@@ -39,7 +39,7 @@ const Header = () => {
           id="nav-menu"
         >
           <ul className="nav__list">
-            <Link to={"/about"}>
+            <Link to={"/about"} onClick={() => setshowBar(false)}>
               <li className="nav__item ">
                 <p
                   className={`nav__link ${
@@ -50,7 +50,7 @@ const Header = () => {
                 </p>
               </li>
             </Link>
-            <Link to={"/"}>
+            <Link to={"/"} onClick={() => setshowBar(false)}>
               <li className="nav__item">
                 <p
                   className={`nav__link ${
@@ -61,7 +61,7 @@ const Header = () => {
                 </p>
               </li>
             </Link>
-            <Link to={"/shop"}>
+            <Link to={"/shop"} onClick={() => setshowBar(false)}>
               <li className="nav__item">
                 <p
                   className={`nav__link ${
@@ -76,7 +76,7 @@ const Header = () => {
           <ul className="nav__list nav__listLogo !justify-center gap-x-10">
             <li className="nav__item ">
               {!user._id ? (
-                <Link to={`/login`}>
+                <Link to={`/login`} onClick={() => setshowBar(false)}>
                   <p className="nav__link">
                     <i className="ri-login-circle-line nav__logo-icon logo-2"></i>
                   </p>
@@ -90,7 +90,7 @@ const Header = () => {
               )}
             </li>
 
-            <Link to={"/wishlist"}>
+            <Link to={"/wishlist"} onClick={() => setshowBar(false)}>
               <li className="nav__item">
                 <p className="nav__link">
                   <i className="ri-heart-line nav__logo-icon logo-2"></i>
@@ -98,7 +98,7 @@ const Header = () => {
                 </p>
               </li>
             </Link>
-            <Link to={"/cart"}>
+            <Link to={"/cart"} onClick={() => setshowBar(false)}>
               <li className="nav__item ">
                 <p className="nav__link ">
                   <i className="ri-shopping-cart-2-line nav__logo-icon logo-2"></i>
